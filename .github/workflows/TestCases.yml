@@ -15,9 +15,11 @@ jobs:
           java-version: '11'
       - name: Download Kotlin Compiler
         run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
           mkdir -p ~/kotlin
           wget -O ~/kotlin/kotlin-compiler.zip "https://github.com/JetBrains/kotlin/releases/download/v1.5.31/kotlin-compiler-1.5.31.zip"
           unzip ~/kotlin/kotlin-compiler.zip -d ~/kotlin
       - name: Build with Kotlin
         run: |
-          /kotlin/kotlinc/bin/kotlinc -include-runtime -d app.jar ./*.kt$
+          /kotlin/kotlinc/bin/kotlinc -include-runtime -d app.jar ./*.kt
