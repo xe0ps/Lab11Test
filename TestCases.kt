@@ -1,5 +1,6 @@
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest {
+class TestCases {
+
     @Test
     fun testValidRegistration() {
         ActivityScenario.launch(MainActivity::class.java).onActivity { mainActivity ->
@@ -7,6 +8,7 @@ class MainActivityTest {
             assertEquals(1, result)
         }
     }
+
     @Test
     fun testInvalidLogin() {
         ActivityScenario.launch(MainActivity::class.java).onActivity { mainActivity ->
