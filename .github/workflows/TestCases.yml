@@ -1,7 +1,7 @@
 name: TestCases
 on:
   push:
-   branches: Lab11
+    branches: Lab11
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,13 +13,11 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '11'
-      - name: Download Kotlin Compiler
+      - name: Install Kotlin Compiler
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget unzip
-          mkdir -p ~/kotlin
-          wget -O ~/kotlin/kotlin-compiler.zip "https://github.com/JetBrains/kotlin/releases/download/v1.5.31/kotlin-compiler-1.5.31.zip"
-          unzip ~/kotlin/kotlin-compiler.zip -d ~/kotlin
+          sudo apt-get install -y default-jre default-jdk
+          sudo snap install --classic kotlin
       - name: Build with Kotlin
         run: |
-          /kotlin/kotlinc/bin/kotlinc -include-runtime -d app.jar ./*.kt
+          kotlinc -include-runtime -d app.jar ./*.kt
