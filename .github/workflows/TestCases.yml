@@ -1,16 +1,20 @@
 name: TestCases
 on:
- push:
-  branches: Lab11
+  push:
+    branches: Lab11
 jobs:
- TestCases:
-  runs-on: ubuntu-latest
-  steps:
-      - name: Checkout
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v3
-      - name: Execute
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_KOTLIN: true
-          FILTER_REGEX_INCLUDE: ./*.kt$
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Run tests
+        run: |
+          ./gradlew test --tests TestCases
