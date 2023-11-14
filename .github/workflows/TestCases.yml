@@ -16,4 +16,5 @@ jobs:
           java-version: '11'  
       - name: Run Tests
         run: |
+          gradle wrapper
           ./gradlew test
