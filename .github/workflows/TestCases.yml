@@ -20,4 +20,4 @@ jobs:
           sudo snap install --classic kotlin
       - name: Build with Kotlin
         run: |
-          kotlinc -include-runtime -d app.jar TestCases.kt
+          kotlinc -include-runtime -d app.jar ./*.kt
