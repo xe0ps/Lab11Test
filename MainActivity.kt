@@ -1,15 +1,19 @@
-class UserAuthenticator {
-    fun authenticateUser(username: String, age: Int, password: String): Int {
-        if (username.length > 20) {
-            return -1 // Неверное имя пользователя
+class MainActivity {
+    fun authenticateUser(login: String, age: Int, password: String): Int {
+
+        if (login.length > 30) {
+            return -1 // Логін не відповідає умові 1.
         }
-        if (age < 6 || age > 120) {
-            return -2 // Неверный возраст
+
+        if (age < 8) {
+            return -2 // Вік не відповідає умові 3.
         }
-        if (password.length < 8 || password.length > 32) {
-            return -3 // Неверная длина пароля
+
+        if (password.length > 30) {
+            return -3 // Пароль не відповідає умові 4.
         }
-        // Симуляция логики аутентификации (возвращается 1 для успешной аутентификации)
+
+        // Якщо всі умови виконані, користувач успішно авторизований.
         return 1
     }
 }
