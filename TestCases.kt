@@ -15,7 +15,6 @@ class TestCases {
 }
 
 suspend fun test() {
-
     println("TC1: ")
     if (sendMessage(mapOf("login" to "xeops", "age" to "19", "password" to "12345678")) == 1) {
         println("TC1: Passed = 1")
@@ -46,7 +45,6 @@ suspend fun test() {
 }
 
 suspend fun sendMessage(data: Map<String, String>): Int {
-    // Имитация отправки сообщения с данными на аутентификацию
     val userAuthenticator = TestCases()
     return userAuthenticator.authenticateUser(
         data["login"] ?: "",
