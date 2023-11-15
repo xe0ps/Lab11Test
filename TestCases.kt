@@ -18,20 +18,18 @@ class TestCases {
     }
 }
 
-fun main() {
-    TestCases().test()
-}
+fun Test() {
+    val userAuthenticator = TestCases()
 
-fun TestCases.test() {
-    val result1 = authenticateUser("xeops", 19, "12345678")
+    val result1 = userAuthenticator.authenticateUser("xeops", 19, "12345678")
     println("Результат теста 1: $result1")
 
-    val result2 = authenticateUser("xeopsssssssssssssssssssssantaaa", 19, "12345678")
+    val result2 = userAuthenticator.authenticateUser("xeopsssssssssssssssssssssantaaa", 19, "12345678")
     println("Результат теста 2: $result2")
 
-    val result3 = authenticateUser("xeops", 5, "12345678")
+    val result3 = userAuthenticator.authenticateUser("xeops", 5, "12345678")
     println("Результат теста 3: $result3")
 
-    val result4 = authenticateUser("xeops", 19, "12345678123456781234567812345678")
+    val result4 = userAuthenticator.authenticateUser("xeops", 19, "12345678123456781234567812345678")
     println("Результат теста 4: $result4")
 }
