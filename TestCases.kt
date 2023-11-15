@@ -1,5 +1,7 @@
 package com.nuop.tscp
 
+data class User(var login: String, var age: Int, var password: String)
+
 object TestCases {
 
     fun authenticateUser(login: String, age: Int, password: String): Int {
@@ -18,7 +20,8 @@ object TestCases {
         return 1
     }
 
-   fun main() {
+   @JvmStatic
+   fun main(args: Array<String>) {
       val result1 = authenticateUser("xeops", 19, "12345678")
       println("TC1: ${
           if (result1 == 1) "Passed = 1" else "Failed"
@@ -37,6 +40,10 @@ object TestCases {
       val result4 = authenticateUser("xeops", 19, "12345678123456781234567812345678")
       println("TC4: ${
           if (result4 == -3) "Passed = -3" else "Failed"
-    }")
-  }
+      }")
+
+      if (1 != result1 || -1 != result2 || -2 != result3 || -3 != result4) {
+            System.exit(-1)
+      }
+   }
 }
