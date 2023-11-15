@@ -20,6 +20,6 @@ jobs:
           sudo apt-get install -y default-jre default-jdk
           sudo snap install --classic kotlin
       - name: Compile Kotlin Code
-        run: kotlinc -include-runtime -d app.jar ./*.kt
+        run: kotlinc -include-runtime -d app.jar -m TestCases ./*.kt
       - name: Run Tests
         run: java -jar app.jar
