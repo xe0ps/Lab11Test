@@ -1,7 +1,7 @@
-name: Test Case
+name: Test Cases
 on:
   push:
-    branches: main
+    branches: Lab11
 jobs:
   TestCases:
     runs-on: ubuntu-latest
