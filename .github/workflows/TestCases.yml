@@ -1,23 +1,16 @@
-name: TestCases
+name: Test Cases
 on:
   push:
     branches: Lab11
+
 jobs:
-  build:
+  TestCases:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-      - name: Install Kotlin Compiler
+        uses: "actions/checkout@v3"
+      
+      - name: Compile & Execute
         run: |
-          sudo apt-get update
-          sudo apt-get install -y default-jre default-jdk
-          sudo snap install --classic kotlin
-      - name: Build with Kotlin
-        run: |
-          kotlinc -include-runtime -d app.jar ./*.kt
+          cd $GITHUB_WORKSPACE/
+          kotlin TestCases.kt
