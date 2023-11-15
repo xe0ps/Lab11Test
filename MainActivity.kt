@@ -19,7 +19,7 @@ class MainActivity {
 }
 
 fun main() {
-    val userAuthenticator = UserAuthenticator()
+    val userAuthenticator = MainActivity()
 
     val result1 = userAuthenticator.authenticateUser("xeops", 19, "12345678")
     println("Результат теста 1: $result1")
