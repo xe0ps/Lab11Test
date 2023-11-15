@@ -27,7 +27,7 @@ object TestCases {
           if (result1 == 1) "Passed = 1" else "Failed"
       }")
 
-      val result2 = authenticateUser("xeopsssssssssssssssssssssantaaa", 19, "12345678")
+      val result2 = authenticateUser("xeops", 19, "12345678")
       println("TC2: ${
           if (result2 == -1) "Passed = -1" else "Failed"
       }")
