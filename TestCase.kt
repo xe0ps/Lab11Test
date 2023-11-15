@@ -2,7 +2,7 @@ import java.lang.NumberFormatException
 import java.text.SimpleDateFormat
 import java.util.Date
 
-object TestCases {
+object TestCase {
   
   fun checkData(dateSpent: String, moneySpent: String, purposeSpent: String): Int {
         val dateFormat = SimpleDateFormat("dd.MM.yyyy")
