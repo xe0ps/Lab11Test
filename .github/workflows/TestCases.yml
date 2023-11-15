@@ -10,5 +10,4 @@ jobs:
         uses: "actions/checkout@v3"
       - name: Compile & Execute
         run: |
-          cd $GITHUB_WORKSPACE/
-          kotlin LiteratureTest.kt
+          kotlin $GITHUB_WORKSPACE/LiteratureTest.kt
