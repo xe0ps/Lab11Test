@@ -18,7 +18,7 @@ object TestCases {
         return 1
     }
 
-   fun main(args: Array<String>) {
+   fun main() {
       val result1 = authenticateUser("xeops", 19, "12345678")
       println("TC1: ${
           if (result1 == 1) "Passed = 1" else "Failed"
