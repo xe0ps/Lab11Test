@@ -21,3 +21,4 @@ jobs:
       - name: Build with Kotlin
         run: |
           kotlinc -include-runtime -d app.jar ./*.kt
+          jar tf app.jar
