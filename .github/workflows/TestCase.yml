@@ -1,4 +1,4 @@
-name: Test Cases
+name: Test Case
 on:
   push:
     branches: main
