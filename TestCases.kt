@@ -1,42 +1,28 @@
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.core.app.ActivityScenario
-import org.junit.Test
-import org.junit.runner.RunWith
-
-import org.junit.Assert.*
-
-@RunWith(AndroidJUnit4::class)
 class TestCases {
+
+    private val userAuthenticator = UserAuthenticator()
 
     @Test
     fun testValidRegistration() {
-        ActivityScenario.launch(MainActivity::class.java).onActivity { mainActivity ->
-            val result = mainActivity.authenticateUser("xeops", 19, "12345678")
-            assertEquals(1, result)
-        }
+        val result = userAuthenticator.authenticateUser("xeops", 19, "12345678")
+        assertEquals(1, result)
     }
 
     @Test
     fun testInvalidLogin() {
-        ActivityScenario.launch(MainActivity::class.java).onActivity { mainActivity ->
-            val result = mainActivity.authenticateUser("xeopsssssssssssssssssssssantaaa", 19, "12345678")
-            assertEquals(-1, result)
-        }
+        val result = userAuthenticator.authenticateUser("xeopsssssssssssssssssssssantaaa", 19, "12345678")
+        assertEquals(-1, result)
     }
 
     @Test
     fun testInvalidAge() {
-        ActivityScenario.launch(MainActivity::class.java).onActivity { mainActivity ->
-            val result = mainActivity.authenticateUser("xeops", 5, "12345678")
-            assertEquals(-2, result)
-        }
+        val result = userAuthenticator.authenticateUser("xeops", 5, "12345678")
+        assertEquals(-2, result)
     }
 
     @Test
     fun testInvalidPassword() {
-        ActivityScenario.launch(MainActivity::class.java).onActivity { mainActivity ->
-            val result = mainActivity.authenticateUser("xeops", 19, "12345678123456781234567812345678")
-            assertEquals(-3, result)
-        }
+        val result = userAuthenticator.authenticateUser("xeops", 19, "12345678123456781234567812345678")
+        assertEquals(-3, result)
     }
 }
