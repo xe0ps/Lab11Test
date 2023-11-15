@@ -12,5 +12,4 @@ jobs:
       
       - name: Compile & Execute
         run: |
-          cd $GITHUB_WORKSPACE/
-          kotlin TestCases.kt
+          kotlin $GITHUB_WORKSPACE/TestCases.kt
