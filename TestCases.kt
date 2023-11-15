@@ -15,32 +15,32 @@ class TestCases {
 }
 
 suspend fun test() {
-    console.log("TC1: ")
+    println("TC1: ")
     if (sendMessage(mapOf("login" to "xeops", "age" to "19", "password" to "12345678")) == 1) {
-        console.log("TC1: Passed = 1")
+        println("TC1: Passed = 1")
     } else {
-        console.log("Failed")
+        println("Failed")
     }
 
-    console.log("TC2: ")
+    println("TC2: ")
     if (sendMessage(mapOf("login" to "xeopsssssssssssssssssssssantaaa", "age" to "19", "password" to "12345678")) == -1) {
-        console.log("TC2: Passed = -1")
+        println("TC2: Passed = -1")
     } else {
-        console.log("Failed")
+        println("Failed")
     }
 
-    console.log("TC3: ")
+    println("TC3: ")
     if (sendMessage(mapOf("login" to "xeops", "age" to "5", "password" to "12345678")) == -2) {
-        console.log("TC3: Passed = -2")
+        println("TC3: Passed = -2")
     } else {
-        console.log("Failed")
+        println("Failed")
     }
 
-    console.log("TC4: ")
+    println("TC4: ")
     if (sendMessage(mapOf("login" to "xeops", "age" to "19", "password" to "12345678123456781234567812345678")) == -3) {
-        console.log("TC4: Passed = -3")
+        println("TC4: Passed = -3")
     } else {
-        console.log("Failed")
+        println("Failed")
     }
 }
 
