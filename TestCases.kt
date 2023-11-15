@@ -1,35 +1,60 @@
 class TestCases {
-    fun authenticateUser(login: String, age: Int, password: String): Int {
-
+    suspend fun authenticateUser(login: String, age: Int, password: String): Int {
         if (login.length > 30) {
             return -1 // Логін не відповідає умові 1.
         }
-
         if (age < 8) {
             return -2 // Вік не відповідає умові 3.
         }
-
         if (password.length > 30) {
             return -3 // Пароль не відповідає умові 4.
         }
-
         // Якщо всі умови виконані, користувач успішно авторизований.
         return 1
     }
 }
 
-fun Test() {
+suspend fun test() {
+
+    println("TC1: ")
+    if (sendMessage(mapOf("login" to "xeops", "age" to "19", "password" to "12345678")) == 1) {
+        println("TC1: Passed = 1")
+    } else {
+        println("Failed")
+    }
+
+    println("TC2: ")
+    if (sendMessage(mapOf("login" to "xeopsssssssssssssssssssssantaaa", "age" to "19", "password" to "12345678")) == -1) {
+        println("TC2: Passed = -1")
+    } else {
+        println("Failed")
+    }
+
+    println("TC3: ")
+    if (sendMessage(mapOf("login" to "xeops", "age" to "5", "password" to "12345678")) == -2) {
+        println("TC3: Passed = -2")
+    } else {
+        println("Failed")
+    }
+
+    println("TC4: ")
+    if (sendMessage(mapOf("login" to "xeops", "age" to "19", "password" to "12345678123456781234567812345678")) == -3) {
+        println("TC4: Passed = -3")
+    } else {
+        println("Failed")
+    }
+}
+
+suspend fun sendMessage(data: Map<String, String>): Int {
+    // Имитация отправки сообщения с данными на аутентификацию
     val userAuthenticator = TestCases()
+    return userAuthenticator.authenticateUser(
+        data["login"] ?: "",
+        data["age"]?.toIntOrNull() ?: 0,
+        data["password"] ?: ""
+    )
+}
 
-    val result1 = userAuthenticator.authenticateUser("xeops", 19, "12345678")
-    println("Результат теста 1: $result1")
-
-    val result2 = userAuthenticator.authenticateUser("xeopsssssssssssssssssssssantaaa", 19, "12345678")
-    println("Результат теста 2: $result2")
-
-    val result3 = userAuthenticator.authenticateUser("xeops", 5, "12345678")
-    println("Результат теста 3: $result3")
-
-    val result4 = userAuthenticator.authenticateUser("xeops", 19, "12345678123456781234567812345678")
-    println("Результат теста 4: $result4")
+suspend fun main() {
+    test()
 }
